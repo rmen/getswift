@@ -24,12 +24,13 @@ After you've implemented your solution, try answering the following questions. W
 - Why did you implement it this way?
 
 R: A straightforward implementation that "seems" to work (I have limited time available to work on this sort of exercise so no tests), and no premature optimization. Pseudocode:
+```bash
    for package in packages_by_delivery_deadline:
        if first_drone_at_depo can deliver package:
        	  assign(package, drone)
        else:
 	  add_unassigned(package)
-
+```
 - Let's assume we need to handle dispatching thousands of jobs per second to thousands of drivers. Would the solution you've implemented still work? Why or why not? What would you modify? Feel free to describe a completely different solution than the one you've developed.
 
 R: There are 3 main methods here - enqueing drones and packages, then assigning them to each other. The enque methods are bounded by the sort operation (I believe python uses an adaptive sort called timsort, but still should be nlogn), and the assignment operation is a linear scan through the sequences. Not getting into any detailed analysis, this whole application should be order (2 nlogn + n) ~ nlogn.
