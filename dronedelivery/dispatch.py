@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-# getswift/dronedelivery/dispath.py
+# getswift/dronedelivery/dispatch.py
 
 """
 GetSwift Code Test
