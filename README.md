@@ -34,7 +34,7 @@ R: A straightforward implementation that "seems" to work (I have limited time av
 - Let's assume we need to handle dispatching thousands of jobs per second to thousands of drivers. Would the solution you've implemented still work? Why or why not? What would you modify? Feel free to describe a completely different solution than the one you've developed.
 
 R: There are 3 main methods here - enqueing drones and packages, then assigning them to each other. The enque methods are bounded by the sort operation (I believe python uses an adaptive sort called timsort, but still should be nlogn), and the assignment operation is a linear scan through the sequences. Not getting into any detailed analysis, this whole application should be order (2 nlogn + n) ~ nlogn.
-Getting back to the question - I'd be more concerned at this stage in implementation with the correctness, so writing tests. And if the implementation is correct, we can take a look at further optimization.
+Getting back to the question - I'd be more concerned at this stage in implementation with the correctness, so writing tests. There are several checks, especially related to network and memory usage, that have been skipped here. And if the implementation is correct and common error cases handled, we can take a look at further optimization.
 
 ### Assessment
 As a rough guide, we look at the following points to assess an analysis:
